@@ -1,0 +1,44 @@
+#Hash排序输出
+h1={"5"=>"XY","2"=>"CT","3"=>"SK","1"=>"WS"}
+h1=Hash[h1.sort]
+h1=Hash[h1.sort_by{|key,val|key}]
+h1=Hash[h1.sort_by{|key,val|val}]
+
+
+
+
+#Hash遍历
+h1.each do |key,value|
+    key
+    puts h1[key]
+end
+
+
+
+#hash排序输出
+stu2={824=>"today",823=>"yesterday",825=>"tomorrow"}
+stu2.merge!(826=>"the day after tomorrow",822=>"the day before yesterday")
+date1=stu2.sort do |i,j|
+  i[0] <=> j[0]
+end
+puts date1
+
+
+
+#多个Hash排序
+hashmap1={:workdate=>20160810,:name=>"XY",:sex=>"male"}
+hashmap2={:workdate=>20160824,:name=>"XsadY",:sex=>"male"}
+hashmap3={:workdate=>20160823,:name=>"XasdasdasY",:sex=>"male"}
+ArrList1=Array.new
+ArrList1.push(hashmap1).push(hashmap2).push(hashmap3)
+puts ArrList1
+#arrry=ArrList1.sort do |a,b|
+    #顺序
+    #a[:workdate]<=>b[:workdate]
+    #倒序
+#    b[:workdate]<=>a[:workdate]
+#end
+#一句话搞定
+arrry=ArrList1.sort {|a,b| b[:workdate]<=>a[:workdate]}
+
+puts arrry
